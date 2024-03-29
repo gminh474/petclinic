@@ -35,6 +35,7 @@
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.40</spring-format.version>
 
+    <image.name>${project.name}</image.name>
   </properties>
 
   <dependencies>
@@ -236,7 +237,7 @@
           </execution>
         </executions>
         <configuration>
-          <imageName>ghcr.io/gminh474/petclinic</imageName>
+          <imageName>${image.name}</imageName>
         </configuration>  
       </plugin>
       <plugin>
