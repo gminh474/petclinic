@@ -234,7 +234,7 @@
               </additionalProperties>
               <image>
                 <name>ghcr.io/gminh474/petclinic</name>
-              >/image>
+              </image>
             </configuration>
           </execution>
         </executions>
