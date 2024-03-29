@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 env:
-  IMAGE_REGISTRY: ghcr.io/${{ github.repository }}
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
   
 jobs:
   build:
@@ -43,5 +43,16 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build image with Maven Wrapper
-        run: mvn -B spring-boot:build-image -DskipTests -Dimage.name=${{ env.IMAGE_REGISTRY }}
-          
+        run: mvn -B spring-boot:build-image -DskipTests -Dimage.name=${{ env.IMAGE_REGISTRY }}/petclinic
+      - name: Push To ghcr
+        id: push-to-ghcr
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: petclinic
+          tags: 3.2.0-SNAPSHOT
+          registry: ${{ env.IMAGE_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Print image url
+        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"          
