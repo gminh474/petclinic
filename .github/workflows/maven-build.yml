@@ -1,4 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+v # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
 name: Java CI with Maven
@@ -43,5 +43,5 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build image with Maven Wrapper
-        run: mvn -B spring-boot:build-image -DskipTests -Diùmage.name!${{IMAGE_REGISTRY}}
+        run: mvn -B spring-boot:build-image -DskipTests -Dimage.name!${{ env.IMAGE_REGISTRY }}
           
