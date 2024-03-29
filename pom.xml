@@ -232,9 +232,7 @@
                 <java.source>${java.version}</java.source>
                 <java.target>${java.version}</java.target>
               </additionalProperties>
-              <image>
-                <name>ghcr.io/gminh474/petclinic</name>
-              </image>
+              <imageName>ghcr.io/gminh474/petclinic</imageName>
             </configuration>
           </execution>
         </executions>
