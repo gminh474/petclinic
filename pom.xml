@@ -232,10 +232,12 @@
                 <java.source>${java.version}</java.source>
                 <java.target>${java.version}</java.target>
               </additionalProperties>
-              <imageName>ghcr.io/gminh474/petclinic</imageName>
             </configuration>
           </execution>
         </executions>
+        <configuration>
+          <imageName>ghcr.io/gminh474/petclinic</imageName>
+        </configuration>  
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
