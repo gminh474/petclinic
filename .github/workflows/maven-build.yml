@@ -44,7 +44,7 @@ jobs:
           cache: maven
       - name: Build image with Maven Wrapper
         run: | 
-          sed -i "s/_SET_BY_CI_FROM_GIT_/$CI_COMMIT_TAG/" pom.xml
+          sed -i "s/_SET_BY_CI_FROM_GIT_/${{ github.sha }}/" pom.xml
           mvn -B spring-boot:build-image -DskipTests
           docker login -u ${{ github.actor }} -p ${{ github.token }} ${{ env.IMAGE_REGISTRY }}
           docker tag spring-petclinic:${{ github.sha }} $IMAGE_REGISTRY/spring-petclinic:${{ github.sha }}
