@@ -43,5 +43,5 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build image with Maven Wrapper
-        run: mvn -B spring-boot:build-image -DskipTests -Dimage.name!${{ env.IMAGE_REGISTRY }}
+        run: mvn -B spring-boot:build-image -DskipTests -Dimage.name=${{ env.IMAGE_REGISTRY }}
           
