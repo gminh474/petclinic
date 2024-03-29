@@ -26,5 +26,5 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build image with Maven Wrapper
-        run: ./mvnw -B spring-boot:build-image -DskipTests
+        run: mvn -B spring-boot:build-image -DskipTests
         
